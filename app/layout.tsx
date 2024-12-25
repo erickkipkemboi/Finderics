@@ -1,16 +1,15 @@
 import type { Metadata } from "next";
-import localFont from "next/font/local";
 import "./globals.css";
+import { Montserrat } from "next/font/google";
+import NavigationMenu from "./components/NavigationMenu";
+import Footer from "./components/Footer";
 
-const geistSans = localFont({
-  src: "./fonts/GeistVF.woff",
-  variable: "--font-geist-sans",
-  weight: "100 900",
-});
-const geistMono = localFont({
-  src: "./fonts/GeistMonoVF.woff",
-  variable: "--font-geist-mono",
-  weight: "100 900",
+
+const montserrat = Montserrat({
+  weight: ["100", "200", "300", "400", "500", "600", "700", "800", "900"],
+  style: ["normal", "italic"],
+  subsets: ["latin"],
+  display: "swap",
 });
 
 export const metadata: Metadata = {
@@ -26,9 +25,21 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
+        className={`${montserrat.className} antialiased`}
+        lang="en"
+        suppressHydrationWarning
       >
-        {children}
+        {/* Flex container to enable sticky footer */}
+        <div className="flex flex-col min-h-screen">
+          {/* Navigation Menu */}
+          <NavigationMenu />
+
+          {/* Main content area */}
+          <main className="flex-grow">{children}</main>
+
+          {/* Sticky Footer */}
+          <Footer />
+        </div>
       </body>
     </html>
   );
