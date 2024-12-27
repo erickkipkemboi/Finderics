@@ -16,8 +16,7 @@ const Footer = () => {
                   alt="Finders International Consultancy Logo"
                   width={150} // Reduced width
                   height={150} // Reduced height
-                  layout="intrinsic"
-                />
+                       />
               </div>
               <p className="text-xl font-semibold text-yellow-500"> 
                 Finders International Consultancy

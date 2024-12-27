@@ -33,7 +33,7 @@ function NavigationMenu() {
         alt="New Company Logo"
         width={160}
         height={160}
-        layout="intrinsic"
+        
       />
     </div>
   </Link>

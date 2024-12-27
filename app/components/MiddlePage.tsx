@@ -7,7 +7,7 @@ export default function MiddlePage() {
       
       <div
         className="absolute inset-0 bg-[url('/images/chumba.jpg')] bg-bottom bg-cover brightness-50"
-        aria-hidden="true">
+       >
           </div>
 
           <div className="relative z-10 flex flex-col items-center justify-center text-center text-white py-32">

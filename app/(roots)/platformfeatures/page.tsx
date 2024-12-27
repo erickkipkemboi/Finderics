@@ -20,7 +20,7 @@ function page() {
               <h2 className="text-2xl font-semibold text-start mb-2 text-black">Flexible Learning Options</h2>
               <p className="text-gray-800">
               We understand that everyone has different schedules and preferences when it comes to learning. 
-              That's why we offer flexible learning options to suit your needs:
+              That is why we offer flexible learning options to suit your needs:
               
               </p>
           </div>
@@ -37,12 +37,12 @@ function page() {
 
           <div className="flex-1 mb-6">
               <h2 className="text-2xl font-semibold text-start mb-2 text-black">Flexible Learning</h2>
-              <p className="text-gray-800">
-                  We understand that everyone has different schedules and learning preferences. That's why we offer flexible
+              <div className="text-gray-800">
+                  We understand that everyone has different schedules and learning preferences. That is why we offer flexible
                   learning options, allowing you to study at your own pace, on your own schedule, from anywhere in the world.
-                  Whether you prefer to learn on-the-go with our mobile app or dive deep into the material with our desktop
-                  platform, we've got you covered.
-              </p>
+                  Whether you prefer to learn on the go with our mobile app or dive deep into the material with our desktop
+                  platform, we have got you covered.
+              </div>
           </div>
 
           <div className="flex-1 mb-6">

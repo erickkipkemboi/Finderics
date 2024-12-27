@@ -11,7 +11,7 @@ const ContactUs = () => {
         <Card className="bg-white shadow-lg rounded-lg">
           <CardHeader className="text-center py-5">
             <h2 className="text-3xl font-semibold text-gray-800">Contact Us</h2>
-            <p className="text-gray-500 mt-2">We'd love to hear from you!</p>
+            <p className="text-gray-500 mt-2">We would love to hear from you!</p>
           </CardHeader>
           <CardContent className="grid grid-cols-1 lg:grid-cols-2 gap-8 p-8">
             <div className="space-y-6">

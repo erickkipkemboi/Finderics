@@ -1,15 +1,18 @@
 import { Card, CardHeader, CardContent, CardFooter } from "@/components/ui/card";
+import Image from "next/image";
 
 const Contentone = () => {
   return (
     <div className="flex flex-col lg:flex-row items-center gap-8 bg-white py-12 px-6 lg:px-20">
   
       <div className="flex-1">
-        <img
-          src="/images/pic2.jpg" 
-          alt="Team Discussion"
-          className="rounded-lg shadow-md w-full object-cover"
-        />
+        <Image
+        src="/images/pic2.jpg"
+        alt="Team Discussion"
+        className="rounded-lg shadow-md w-full object-cover"
+        width={800}
+        height={500}
+      />
       </div>
 
        <div className="flex-1  pt-1">
@@ -19,13 +22,13 @@ const Contentone = () => {
           </CardHeader>
           <CardContent>
             <p className="text-base text-gray-700 mb-4">
-              At FIC, we're dedicated to helping you achieve fluency in German
+              At FIC, we are dedicated to helping you achieve fluency in German
               and French, as well as success in the IELTS exam.
             </p>
             <p className="text-base text-gray-700 ">
-              Whether you're pursuing professional opportunities, planning to
+              Whether you are pursuing professional opportunities, planning to
               study abroad, or simply passionate about language learning,
-              you've come to the right place.
+              you have come to the right place.
             </p>
           </CardContent>
           <CardFooter className="pt-4">

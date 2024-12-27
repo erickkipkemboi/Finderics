@@ -1,4 +1,5 @@
 import React from 'react';
+import Image from 'next/image';
 import Content3 from '@/app/components/Content3';
 import TuitionFeeCard from '@/app/components/course/TuitionFeeCard';
 import FrenchDescription from '@/app/components/course/FrenchDescription';
@@ -29,12 +30,15 @@ function page() {
             {/* French Course */}
             <div className="bg-gray-100 p-6 md:p-8 rounded-lg shadow-md flex flex-col justify-between hover:shadow-xl transition-shadow duration-300">
               <div className="flex-1">
-                <img
-                  src="/images/french.jpg"
-                  alt="Team Discussion"
-                  className="rounded-lg shadow-md w-full object-cover"
-                />
-              </div>
+              <Image
+              src="/images/french.jpg"
+              alt="French Course"
+              layout="responsive"
+              width={500}
+              height={300}
+              className="rounded-lg shadow-md"
+            />
+                          </div>
               <div className="text-start">
                 <TuitionFeeCard />
               </div>
@@ -43,11 +47,14 @@ function page() {
             {/* German Course */}
             <div className="bg-gray-100 p-6 md:p-8 rounded-lg shadow-md flex flex-col justify-between hover:shadow-xl transition-shadow duration-300">
               <div className="flex-1">
-                <img
-                  src="/images/german.jpg"
-                  alt="Team Discussion"
-                  className="rounded-lg shadow-md w-full object-cover"
-                />
+              <Image
+                src="/images/german.jpg"
+                alt="French Course"
+                layout="responsive"
+                width={500}
+                height={300}
+                className="rounded-lg shadow-md"
+              />
               </div>
               <div className="text-start">
                 <TuitionFeeCard />
@@ -57,11 +64,14 @@ function page() {
             {/* IELTS Course */}
             <div className="bg-gray-100 p-6 md:p-8 rounded-lg shadow-md flex flex-col justify-between hover:shadow-xl transition-shadow duration-300">
               <div className="flex-1">
-                <img
-                  src="/images/ielts.png"
-                  alt="Team Discussion"
-                  className="rounded-lg shadow-md w-full object-cover"
-                />
+              <Image
+                src="/images/ielts.jpg"
+                alt="French Course"
+                layout="responsive"
+                width={500}
+                height={300}
+                className="rounded-lg shadow-md"
+              />
               </div>
               <div className="text-start">
                 <TuitionFeeCard />

@@ -35,7 +35,7 @@ function Content2() {
               </p>
               <p className="text-sm md:text-base text-gray-700 mt-2">
                 With our proven strategies 
-                and personalized guidance, you'll be well-prepared to tackle every section of the exam 
+                and personalized guidance, you all be well prepared to tackle every section of the exam 
                 with confidence.
               </p>
             </div>
