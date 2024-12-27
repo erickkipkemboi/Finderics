@@ -4,13 +4,13 @@ function Content2() {
   return (
     <div className="max-w-7xl mx-auto p-4 text-xl">
       {/* Outer Big Card */}
-      <div className="bg-indigo-400 p-6 md:p-8 lg:p-10 rounded-lg shadow-lg">
-        <h2 className="text-xl md:text-2xl lg:text-3xl font-semibold text-center mb-6 text-white">What We Do</h2>
+      <div className="bg-gray-100 p-6 md:p-8 lg:p-10 rounded-lg shadow-lg">
+        <h2 className="text-xl md:text-2xl lg:text-3xl font-semibold text-center mb-6 text-black">What We Do</h2>
 
         {/* Inner Card Grid */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
           {/* First Card */}
-          <div className="bg-gray-100 p-6 md:p-8 rounded-lg shadow-md flex flex-col justify-between hover:shadow-xl transition-shadow duration-300">
+          <div className="bg-gray-10 p-6 md:p-8 rounded-lg shadow-md flex flex-col justify-between hover:shadow-xl transition-shadow duration-300">
             <div className="text-left">
               <h3 className="font-semibold text-lg md:text-xl mb-4">Language Learning Courses</h3>
               <p className="text-sm md:text-base text-gray-700">
@@ -26,7 +26,7 @@ function Content2() {
           </div>
 
           {/* Second Card */}
-          <div className="bg-gray-100 p-6 md:p-8 rounded-lg shadow-md flex flex-col justify-between hover:shadow-xl transition-shadow duration-300">
+          <div className="bg-gray-10 p-6 md:p-8 rounded-lg shadow-md flex flex-col justify-between hover:shadow-xl transition-shadow duration-300">
             <div className="text-start">
               <h3 className="font-semibold text-lg md:text-xl mb-4">IELTS Exam</h3>
               <p className="text-sm md:text-base text-gray-700">
@@ -42,7 +42,7 @@ function Content2() {
           </div>
 
           {/* Third Card */}
-          <div className="bg-gray-100 p-6 md:p-8 rounded-lg shadow-md flex flex-col justify-between hover:shadow-xl transition-shadow duration-300">
+          <div className="bg-gray-10 p-6 md:p-8 rounded-lg shadow-md flex flex-col justify-between hover:shadow-xl transition-shadow duration-300">
             <div className="text-start">
               <h3 className="font-semibold text-lg md:text-xl mb-4">Journey to Success</h3>
               <p className="text-sm md:text-base text-gray-700">

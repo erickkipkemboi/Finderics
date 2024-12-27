@@ -14,12 +14,12 @@ const Footer = () => {
                 <Image
                   src={Logo}
                   alt="Finders International Consultancy Logo"
-                  width={96} // Reduced width
-                  height={96} // Reduced height
+                  width={150} // Reduced width
+                  height={150} // Reduced height
                   layout="intrinsic"
                 />
               </div>
-              <p className="text-xl font-semibold text-white"> 
+              <p className="text-xl font-semibold text-yellow-500"> 
                 Finders International Consultancy
               </p>
             </Link>
@@ -45,16 +45,16 @@ const Footer = () => {
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-8 text-base">
             {[
               {
-                title: "PROJECT PLANNING",
-                links: ["Gantt Charts", "Milestones", "Resource Allocation", "Risk Management"],
+                title: "OUR MAJOR PRODUCTS",
+                links: ["Learning French", "Learn German", "Preparation to IELTS"],
               },
               {
-                title: "TASK MANAGEMENT",
-                links: ["Kanban Boards", "Time Tracking", "Task Dependencies", "Progress Tracking"],
+                title: "LINKS",
+                links: ["Home", "About Us", "Courses", "Contact Us"],
               },
               {
-                title: "TEAM COLLABORATION",
-                links: ["File Sharing", "Team Chat", "Video Conferencing", "Shared Calendars"],
+                title: "LEARNING RESOURCES",
+                links: ["Moodle", "Team Chat", "Video Conferencing", "Shared Calendars"],
               },
               {
                 title: "REPORTING",
@@ -79,7 +79,7 @@ const Footer = () => {
 
         {/* Footer Bottom */}
         <div className="mt-10 text-center text-gray-400 text-sm">
-          © 2025 MynaUI. All rights reserved.
+          © 2025 Finderics. All rights reserved.
         </div>
       </div>
     </footer>

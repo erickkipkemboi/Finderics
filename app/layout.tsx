@@ -3,6 +3,7 @@ import "./globals.css";
 import { Montserrat } from "next/font/google";
 import NavigationMenu from "./components/NavigationMenu";
 import Footer from "./components/Footer";
+import WhatsappContact from "./components/Whatsapp";
 
 
 const montserrat = Montserrat({
@@ -37,6 +38,8 @@ export default function RootLayout({
           {/* Main content area */}
           <main className="flex-grow">{children}</main>
 
+
+          <WhatsappContact />
           {/* Sticky Footer */}
           <Footer />
         </div>
