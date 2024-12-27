@@ -41,7 +41,7 @@ function About() {
     Learning a new language is more fun and effective when you are part of a supportive community. Our platform
      provides opportunities for learners to connect with each other, share experiences, and practice their 
      language skills in a collaborative and encouraging environment. Join our vibrant community of language 
-     enthusiasts and benefit from
+     enthusiasts and benefit from our company
     </p>
   </div>
 <div className="mt-6 justify-end">
