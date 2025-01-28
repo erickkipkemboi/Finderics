@@ -4,18 +4,18 @@ import Logo from "/public/icons/logo.png";
 
 const Footer = () => {
   return (
-    <footer className="bg-gray-800 text-white border-t border-gray-300">
+    <footer className="bg-blue-950 text-white border-t border-gray-300">
       <div className="max-w-7xl mx-auto px-6 py-12">
         <div className="flex flex-col md:flex-row md:items-start justify-between space-y-8 md:space-y-0">
-          {/* Logo Section */}
+      
           <div className="flex flex-col items-center md:items-start space-y-4">
             <Link href="/" aria-label="Home">
-              <div className="w-24 h-24"> {/* Adjusted size */}
+              <div className="w-24 h-24">
                 <Image
                   src={Logo}
                   alt="Finders International Consultancy Logo"
-                  width={150} // Reduced width
-                  height={150} // Reduced height
+                  width={150} 
+                  height={150} 
                        />
               </div>
               <p className="text-xl font-semibold text-yellow-500"> 

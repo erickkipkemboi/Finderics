@@ -2,14 +2,15 @@
 import React, { useState } from "react";
 import { Card } from "@/components/ui/card";
 import Link from "next/link";
-import Logo from "/public/icons/logo.png"; // Updated logo
+import Logo from "/public/icons/logo.png";
 import Image from "next/image";
 import { Button } from "@/components/ui/button";
-import { usePathname } from "next/navigation";
+import { usePathname, useRouter } from "next/navigation";
 import { AiOutlineMenu, AiOutlineClose } from "react-icons/ai";
 
 function NavigationMenu() {
   const pathname = usePathname();
+  const router = useRouter();
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   const toggleMenu = () => setIsMenuOpen(!isMenuOpen);
@@ -18,37 +19,33 @@ function NavigationMenu() {
     { href: "/", label: "Home" },
     { href: "/aboutus", label: "About" },
     { href: "/courses", label: "Courses" },
-    { href: "/elearning", label: "Elearning" },
     { href: "/contactus", label: "Contact Us" },
   ];
-
   return (
-    <Card className="rounded-none border-none sticky top-0 z-50 bg-[#6366f1]">
-      <div className="h-24 max-w-7xl mx-auto py- px-4 lg:px-0 flex items-center justify-between">
-      <div className="flex items-center">
-  <Link href="/" aria-label="Home">
-    <div className="w-40 h-40 pt-2"> {/* Reduced top padding */}
-      <Image
-        src={Logo}
-        alt="New Company Logo"
-        width={160}
-        height={160}
-        
-      />
-    </div>
-  </Link>
-  <div className="text-yellow-500 text-xl font-bold ml-1"> {/* Reduced margin */}
-    Finders International Consultancy
-  </div>
-</div>
-        {/* Desktop Navigation */}
+    <Card className="rounded-none border-none sticky top-0 z-50 bg-blue-950">
+      <div className="h-24 max-w-7xl mx-auto px-4 lg:px-0 flex items-center justify-between">
+        <div className="flex items-center sm:justify-start">
+          <Link href="/" aria-label="Home">
+            <div className="w-20 h-20 sm:w-16 sm:h-16 pt-2 sm:pt-0">
+              <Image
+                src={Logo}
+                alt="New Company Logo"
+                width={200}
+                height={200}
+              />
+            </div>
+          </Link>
+          <div className="text-yellow-600 font-bold ml-2 sm:ml-1 text-2xl sm:text-lg sm:leading-snug text-left">
+            Finders International Consultancy
+          </div>
+        </div>
         <div className="hidden lg:flex items-center space-x-6">
           {navigationLinks.map((link) => (
             <Link key={link.href} href={link.href}>
               <Button
                 variant={pathname === link.href ? "default" : "link"}
                 className={`text-white ${
-                  pathname === link.href ? "bg-yellow-500" : "hover:bg-yellow-500"
+                  pathname === link.href ? "bg-yellow-600" : "hover:bg--500"
                 } focus:bg-yellow-500`}
                 aria-label={`Go to ${link.label}`}
               >
@@ -56,9 +53,15 @@ function NavigationMenu() {
               </Button>
             </Link>
           ))}
+            <Button
+            onClick={() => router.push("/login")}
+            className="bg-yellow-700 hover:bg-blue-400 text-white font-bold px-6 py-2 rounded-lg shadow-md transition-all duration-300"
+            aria-label="Sign In"
+          >
+            Sign In
+          </Button>
         </div>
 
-        {/* Mobile Menu Button */}
         <div className="lg:hidden">
           <Button onClick={toggleMenu} className="text-white" aria-label="Toggle menu">
             {isMenuOpen ? <AiOutlineClose size={24} /> : <AiOutlineMenu size={24} />}
@@ -66,7 +69,7 @@ function NavigationMenu() {
         </div>
       </div>
 
-      {/* Mobile Side Menu */}
+
       <div
         className={`fixed inset-y-0 left-0 w-64 bg-white shadow-lg transform transition-all duration-300 ${
           isMenuOpen ? "translate-x-0" : "-translate-x-full"
@@ -87,7 +90,7 @@ function NavigationMenu() {
                   className={`w-full text-left text-[#6366f1] ${
                     pathname === link.href ? "bg-yellow-500" : "hover:bg-yellow-500"
                   } focus:bg-yellow-500`}
-                  onClick={toggleMenu} // Close menu on link click
+                  onClick={toggleMenu} 
                   aria-label={`Go to ${link.label}`}
                 >
                   {link.label}
@@ -95,6 +98,18 @@ function NavigationMenu() {
               </Link>
             </li>
           ))}
+                <li>
+            <Button
+              onClick={() => {
+                toggleMenu();
+                router.push("/Sign");
+              }}
+              className="w-full text-left bg-yellow-500 hover:bg-yellow-600 text-white font-bold px-6 py-2 rounded-lg shadow-md transition-all duration-300"
+              aria-label="Sign In"
+            >
+              Sign In
+            </Button>
+          </li>
         </ul>
       </div>
     </Card>

@@ -6,7 +6,6 @@ import FrenchDescription from '@/app/components/course/FrenchDescription';
 import GermanDescription from '@/app/components/course/GermanDescription';
 import IeltsDescription from '@/app/components/course/IeltsDescription';
 
-
 function page() {
   return (
     <>
@@ -27,7 +26,7 @@ function page() {
           </h2>
 
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-            {/* French Course */}
+
             <div className="bg-gray-100 p-6 md:p-8 rounded-lg shadow-md flex flex-col justify-between hover:shadow-xl transition-shadow duration-300">
               <div className="flex-1">
               <Image
@@ -44,7 +43,6 @@ function page() {
               </div>
             </div>
 
-            {/* German Course */}
             <div className="bg-gray-100 p-6 md:p-8 rounded-lg shadow-md flex flex-col justify-between hover:shadow-xl transition-shadow duration-300">
               <div className="flex-1">
               <Image
@@ -61,11 +59,10 @@ function page() {
               </div>
             </div>
 
-            {/* IELTS Course */}
             <div className="bg-gray-100 p-6 md:p-8 rounded-lg shadow-md flex flex-col justify-between hover:shadow-xl transition-shadow duration-300">
               <div className="flex-1">
               <Image
-                src="/images/ielts.jpg"
+                src="/images/ielts.png"
                 alt="French Course"
                 layout="responsive"
                 width={500}

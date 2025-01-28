@@ -2,7 +2,7 @@ import React from 'react';
 import { MessageSquare } from 'lucide-react'; // Import the WhatsApp-like icon from shadcn
 
 const WhatsappContact: React.FC = () => {
-  const whatsappNumber = '+25493042033'; // Replace with your WhatsApp number
+  const whatsappNumber = '+254793042033'; // Replace with your WhatsApp number
   const message = 'Hello, I would like to know more about your services.'; // Default message
   
   const whatsappLink = `https://wa.me/${whatsappNumber.replace('+', '')}?text=${encodeURIComponent(message)}`;

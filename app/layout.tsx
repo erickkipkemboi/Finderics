@@ -1,10 +1,7 @@
 import type { Metadata } from "next";
 import "./globals.css";
 import { Montserrat } from "next/font/google";
-import NavigationMenu from "./components/NavigationMenu";
-import Footer from "./components/Footer";
 import WhatsappContact from "./components/Whatsapp";
-
 
 const montserrat = Montserrat({
   weight: ["100", "200", "300", "400", "500", "600", "700", "800", "900"],
@@ -33,7 +30,7 @@ export default function RootLayout({
         {/* Flex container to enable sticky footer */}
         <div className="flex flex-col min-h-screen">
           {/* Navigation Menu */}
-          <NavigationMenu />
+    
 
           {/* Main content area */}
           <main className="flex-grow">{children}</main>
@@ -41,7 +38,7 @@ export default function RootLayout({
 
           <WhatsappContact />
           {/* Sticky Footer */}
-          <Footer />
+      
         </div>
       </body>
     </html>

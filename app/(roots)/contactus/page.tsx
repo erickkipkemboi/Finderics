@@ -3,9 +3,21 @@ import { Input } from "@/components/ui/input";
 import { Card, CardContent, CardHeader } from "@/components/ui/card";
 import { Textarea } from "@/components/ui/textarea";
 import { FaEnvelope, FaPhone, FaMapMarkerAlt } from "react-icons/fa";
+import Content3 from "@/app/components/Content3";
 
 const ContactUs = () => {
   return (
+
+    <>
+
+<div className="relative">
+        <Content3 />
+
+        <div className="absolute inset-0 flex flex-col items-center justify-center text-white">
+          <h3 className="text-4xl font-bold">Contact Us</h3>
+          <p className="text-xl">Home/Contact Us</p>
+        </div>
+      </div>
     <div className="flex justify-center items-center py-10 bg-gray-50">
       <div className="max-w-3xl w-full px-6">
         <Card className="bg-white shadow-lg rounded-lg">
@@ -21,7 +33,7 @@ const ContactUs = () => {
               </div>
               <div className="flex items-center space-x-3 text-gray-700">
                 <FaPhone className="w-5 h-5" />
-                <span>+25493042033</span>
+                <span>+254793042033</span>
               </div>
               <div className="flex items-center space-x-3 text-gray-700">
                 <FaMapMarkerAlt className="w-5 h-5" />
@@ -75,6 +87,7 @@ const ContactUs = () => {
         </Card>
       </div>
     </div>
+    </>
   );
 };
 
