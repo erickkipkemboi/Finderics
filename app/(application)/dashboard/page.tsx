@@ -3,6 +3,8 @@ import React from 'react';
 import Sidebar from '@/app/components/dashboard/Sidebar';
 import Profile from '@/app/components/dashboard/Profile';
 import DashboardCards from '@/app/components/dashboard/Cards';
+import Charts from '@/app/components/dashboard/Charts';
+import { Card } from '@/components/ui/card';
 
 const Dashboard: React.FC = () => {
   const [isSidebarOpen, setIsSidebarOpen] = React.useState(false);
@@ -28,24 +30,37 @@ const Dashboard: React.FC = () => {
       {/* Sidebar */}
       <Sidebar isOpen={isSidebarOpen} onToggle={toggleSidebar} navItems={navItems} />
 
-      {/* Main Content */}
       <main
         className={`transition-all duration-300 ${
           isSidebarOpen ? 'lg:ml-64' : 'lg:ml-0'
         }`}
       >
-        {/* Profile Section */}
         <Profile user={user} onMenuClick={toggleSidebar} />
 
-        {/* Dashboard Content */}
         <div className="p-6">
           <div className="max-w-7xl mx-auto">
             {/* Page Title */}
             <h1 className="text-2xl font-semibold text-gray-900">Dashboard</h1>
 
-            {/* Dashboard Cards */}
-            <div className="mt-6">
-              <DashboardCards />
+            <div className="mt-6 grid grid-cols-1 lg:grid-cols-3 gap-6">
+              {/* Users Card */}
+    
+
+              {/* Dashboard Cards Wrapped in a Card */}
+              <div className="lg:col-span-3">
+                <Card className="p-6">
+                  <h2 className="text-lg font-medium mb-4">Overview</h2>
+                  <DashboardCards />
+                </Card>
+              </div>
+
+              {/* Charts Wrapped in a Card */}
+              <div className="lg:col-span-3">
+                <Card className="p-6">
+                  <h2 className="text-lg font-medium mb-4">Analytics</h2>
+                  <Charts />
+                </Card>
+              </div>
             </div>
           </div>
         </div>
