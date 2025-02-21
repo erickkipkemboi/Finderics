@@ -23,20 +23,19 @@ const data = [
 
 const LineChartComponent = () => {
   return (
-    <ResponsiveContainer width="100%" height={200}> {/* Set width to 100% for better responsiveness */}
-      <LineChart
-        data={data}
-        margin={{ top: 5, right: 20, left: 10, bottom: 5 }} // Adjusted margins
-      >
-        <CartesianGrid strokeDasharray="3 3" />
-        <XAxis dataKey="name" />
-        <YAxis />
-        <Tooltip />
-        <Legend />
-        <Line type="monotone" dataKey="pv" stroke="#8884d8" activeDot={{ r: 6 }} /> {/* Smaller active dot */}
-        <Line type="monotone" dataKey="uv" stroke="#82ca9d" />
-      </LineChart>
-    </ResponsiveContainer>
+<ResponsiveContainer width="100%" height={200}>
+  <>
+    <LineChart data={data} margin={{ top: 5, right: 20, left: 10, bottom: 5 }}>
+      <CartesianGrid strokeDasharray="3 3" />
+      <XAxis dataKey="name" />
+      <YAxis />
+      <Tooltip />
+      <Legend />
+      <Line type="monotone" dataKey="pv" stroke="#8884d8" activeDot={{ r: 6 }} />
+      <Line type="monotone" dataKey="uv" stroke="#82ca9d" />
+    </LineChart>
+  </>
+</ResponsiveContainer>
   );
 };
 
