@@ -9,7 +9,7 @@ const DashboardCards: React.FC = () => {
   ];
 
   return (
-    <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+    <div className="grid gap-3 md:grid-cols-2 lg:grid-cols-3">
       {cards.map(({ title, content, bg }, index) => (
         <Card key={index} className={`p-6 ${bg}`}>
           <h2 className="text-lg font-medium">{title}</h2>

@@ -10,7 +10,7 @@ import {
 import { Card } from '@/components/ui/card';
 
 interface User {
-  name: string;
+  name:string;
   role: string;
   avatarInitials: string;
 }
