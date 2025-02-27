@@ -54,7 +54,7 @@ function NavigationMenu() {
             </Link>
           ))}
             <Button
-            onClick={() => router.push("/login")}
+            onClick={() => router.push("https://finderics.org/moodle")}
             className="bg-yellow-700 hover:bg-blue-400 text-white font-bold px-6 py-2 rounded-lg shadow-md transition-all duration-300"
             aria-label="Sign In"
           >
@@ -102,7 +102,7 @@ function NavigationMenu() {
             <Button
               onClick={() => {
                 toggleMenu();
-                router.push("/Sign");
+                router.push("https://finderics.org/moodle");
               }}
               className="w-full text-left bg-yellow-500 hover:bg-yellow-600 text-white font-bold px-6 py-2 rounded-lg shadow-md transition-all duration-300"
               aria-label="Sign In"
