@@ -67,7 +67,7 @@ function NavigationMenu() {
             {isMenuOpen ? <AiOutlineClose size={24} /> : <AiOutlineMenu size={24} />}
           </Button>
         </div>
-      </div>
+        </div>
 
 
       <div

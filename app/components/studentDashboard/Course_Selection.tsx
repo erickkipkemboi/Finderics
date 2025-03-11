@@ -6,7 +6,6 @@ import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogFooter } from "
 import { Input } from "@/components/ui/input";
 import axios from "axios";
 
-
 interface Course {
   id: string;
   name: string;
@@ -20,11 +19,17 @@ const courses: Course[] = [
   { id: "ielts", name: "IELTS Course", image: "/images/ielts.png", price: 6000 },
 ];
 
+const API_URL = process.env.NEXT_PUBLIC_API_URL || "http://localhost:5000";
+
 function CourseSelection() {
   const [selectedCourse, setSelectedCourse] = useState<Course | null>(null);
   const [phone, setPhone] = useState("");
   const [loading, setLoading] = useState(false);
   const [dialogOpen, setDialogOpen] = useState(false);
+
+  const isValidPhone = (phone: string) => {
+    return /^2547\d{8}$/.test(phone);
+  };
 
   const handleSelect = (course: Course) => {
     setSelectedCourse(course);
@@ -32,7 +37,7 @@ function CourseSelection() {
   };
 
   const handlePayment = async () => {
-    if (!phone.match(/^2547\d{8}$/)) {
+    if (!isValidPhone(phone)) {
       alert("Enter a valid Safaricom number (e.g., 2547XXXXXXXX)");
       return;
     }
@@ -41,12 +46,12 @@ function CourseSelection() {
 
     setLoading(true);
     try {
-      const { data } = await axios.post("http://localhost:5000/mpesa/stkpush", {
+      const { data } = await axios.post(`${API_URL}/mpesa/stkpush`, {
         phone,
         amount: selectedCourse.price,
       });
 
-      if (data.ResponseCode === "0") {
+      if (data && data.ResponseCode === "0") {
         alert("Check your M-Pesa phone to complete the payment.");
       } else {
         alert("Payment request failed. Please try again.");
@@ -69,16 +74,24 @@ function CourseSelection() {
 
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
           {courses.map((course) => (
-            <Card key={course.id} className="bg-gray-100 hover:shadow-xl transition-shadow duration-300 cursor-pointer rounded-xl border">
-              <CardHeader className="p-0">
-                <Image src={course.image} alt={course.name} layout="responsive" width={500} height={300} className="rounded-t-xl" />
+            <Card key={course.id} className="bg-gray-100 hover:shadow-xl transition-shadow duration-300 cursor-pointer rounded-xl border flex flex-col">
+              <CardHeader className="p-0 flex-shrink-0">
+                <Image
+                  src={course.image}
+                  alt={course.name}
+                  layout="responsive"
+                  width={500}
+                  height={300}
+                  className="rounded-t-xl"
+                  priority
+                />
               </CardHeader>
-              <CardContent className="p-6">
+              <CardContent className="p-6 flex-grow">
                 <h3 className="text-xl font-semibold text-gray-800">{course.name}</h3>
                 <p className="text-lg font-bold mt-2 text-gray-700">Ksh {course.price}</p>
               </CardContent>
-              <CardFooter className="p-6">
-                <Button variant="default" onClick={() => handleSelect(course)} className="w-full">
+              <CardFooter className="p-6 flex-shrink-0">
+                <Button variant="default" onClick={() => handleSelect(course)} className="w-full" aria-label={`Select ${course.name}`}>
                   Select Course
                 </Button>
               </CardFooter>
@@ -115,7 +128,7 @@ function CourseSelection() {
               <Button variant="outline" onClick={() => setDialogOpen(false)}>
                 Cancel
               </Button>
-              <Button onClick={handlePayment} disabled={loading || !phone.match(/^2547\d{8}$/)} className="bg-green-600 hover:bg-green-700 text-white">
+              <Button onClick={handlePayment} disabled={loading || !isValidPhone(phone)} className="bg-green-600 hover:bg-green-700 text-white">
                 {loading ? "Processing..." : "Pay via M-Pesa"}
               </Button>
             </DialogFooter>
