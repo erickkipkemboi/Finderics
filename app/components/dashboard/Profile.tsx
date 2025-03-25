@@ -1,26 +1,29 @@
-import React from 'react';
-import { Search, Menu } from 'lucide-react';
+import React from "react";
+import { Search, Menu } from "lucide-react";
 import {
   DropdownMenu,
   DropdownMenuTrigger,
   DropdownMenuContent,
   DropdownMenuItem,
   DropdownMenuSeparator,
-} from '@/components/ui/dropdown-menu';
-import { Card } from '@/components/ui/card';
+} from "@/components/ui/dropdown-menu";
+import { Card } from "@/components/ui/card";
+import { useAuth } from "@/app/context/authContext"; // Import auth context
 
-interface User {
-  name:string;
-  role: string;
-  avatarInitials: string;
-}
+const Profile: React.FC<{ onMenuClick: () => void }> = ({ onMenuClick }) => {
+  const { user } = useAuth(); // Fetch user from context
 
-interface ProfileProps {
-  user: User;
-  onMenuClick: () => void;
-}
+  // Default user data if no user is logged in
+  const userName = user?.name || "Guest";
+  const userRole = user?.role || "User";
+  const userInitials = user?.name
+    ? user.name
+        .split(" ")
+        .map((n) => n[0])
+        .join("")
+        .toUpperCase()
+    : "G"; // Default to "G" for Guest
 
-const Profile: React.FC<ProfileProps> = ({ user, onMenuClick }) => {
   return (
     <Card className="w-full bg-white border-b h-16 shadow-md">
       <div className="flex items-center justify-between px-6 h-full">
@@ -48,11 +51,11 @@ const Profile: React.FC<ProfileProps> = ({ user, onMenuClick }) => {
           <DropdownMenuTrigger asChild>
             <button className="flex items-center space-x-3">
               <div className="hidden sm:block text-right">
-                <p className="text-sm font-medium text-gray-700">{user.name}</p>
-                <p className="text-xs text-gray-500">{user.role}</p>
+                <p className="text-sm font-medium text-gray-700">{userName}</p>
+                <p className="text-xs text-gray-500">{userRole}</p>
               </div>
               <div className="h-8 w-8 bg-blue-500 flex items-center justify-center rounded-full text-white font-medium">
-                {user.avatarInitials}
+                {userInitials}
               </div>
             </button>
           </DropdownMenuTrigger>

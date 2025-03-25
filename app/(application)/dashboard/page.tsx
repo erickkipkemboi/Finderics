@@ -9,11 +9,6 @@ import  Table  from "@/app/components/dashboard/Table1";
 import { Home, BarChart, Settings, Table as TableIcon } from "lucide-react"; 
 
 const Dashboard: React.FC = () => {
-  const user = {
-    name: "John Doe",
-    role: "Admin",
-    avatarInitials: "JD",
-  };
 
   const navItems = [
     { label: "Dashboard", href: "/dashboard", icon: <Home size={20} /> },
