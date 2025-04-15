@@ -17,8 +17,8 @@ const navItems=[
 function page() {
   return (
       <><Sidebar navItems={navItems} />
- <Profile user={user} onMenuClick={() => console.log("Menu clicked")} />
-  <Course_Selection/>
+        <Profile user={user} onMenuClick={() => console.log("Menu clicked")} />
+        <Course_Selection/>
 </>
 
   )
