@@ -1,3 +1,5 @@
+"use client";
+
 import React from "react";
 import { Search, Menu } from "lucide-react";
 import {
@@ -8,21 +10,21 @@ import {
   DropdownMenuSeparator,
 } from "@/components/ui/dropdown-menu";
 import { Card } from "@/components/ui/card";
-import { useAuth } from "@/app/context/authContext"; // Import auth context
+import { useAuth } from "@/app/context/AuthContext"; // Import auth context
 
 const Profile: React.FC<{ onMenuClick: () => void }> = ({ onMenuClick }) => {
-  const { user } = useAuth(); // Fetch user from context
+  const { user, logout } = useAuth(); // Fetch user and logout from context
 
-  // Default user data if no user is logged in
-  const userName = user?.name || "Guest";
-  const userRole = user?.role || "User";
-  const userInitials = user?.name
-    ? user.name
-        .split(" ")
-        .map((n) => n[0])
-        .join("")
-        .toUpperCase()
-    : "G"; // Default to "G" for Guest
+  // ✅ Hide profile if user is not authenticated
+  if (!user) return null;
+
+  const userName = user.name;
+  const userRole = user.role;
+  const userInitials = user.name
+    .split(" ")
+    .map((n) => n[0])
+    .join("")
+    .toUpperCase();
 
   return (
     <Card className="w-full bg-white border-b h-16 shadow-md">
@@ -63,7 +65,12 @@ const Profile: React.FC<{ onMenuClick: () => void }> = ({ onMenuClick }) => {
             <DropdownMenuItem>Profile</DropdownMenuItem>
             <DropdownMenuItem>Settings</DropdownMenuItem>
             <DropdownMenuSeparator />
-            <DropdownMenuItem className="text-red-500">Logout</DropdownMenuItem>
+            <DropdownMenuItem
+              className="text-red-500 cursor-pointer"
+              onClick={logout} // ✅ Link logout action
+            >
+              Logout
+            </DropdownMenuItem>
           </DropdownMenuContent>
         </DropdownMenu>
       </div>

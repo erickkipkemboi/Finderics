@@ -16,7 +16,6 @@ interface AuthContextType {
 
 const AuthContext = createContext<AuthContextType | undefined>(undefined)
 
-// Function to decode JWT
 const decodeJWT = (token: string): any | null => {
   try {
     const payload = token.split(".")[1] // Extract payload part
@@ -51,6 +50,7 @@ export const AuthProvider = ({ children }: { children: React.ReactNode }) => {
       }
     }
   }, [])
+  
 
   // Logout function
   const logout = () => {

@@ -1,11 +1,11 @@
 "use client";
 import React from "react";
-import Sidebar from "@/app/components/dashboard/Sidebar";
-import Profile from "@/app/components/dashboard/Profile";
-import DashboardCards from "@/app/components/dashboard/Cards";
-import Charts from "@/app/components/dashboard/Charts";
+import Sidebar from "@/app/components/dashboardcomponents/Sidebar";
+import Profile from "@/app/components/dashboardcomponents/Profile";
+import DashboardCards from "@/app/components/dashboardcomponents/Cards";
+import Charts from "@/app/components/dashboardcomponents/Charts";
 import { Card } from "@/components/ui/card";
-import  Table  from "@/app/components/dashboard/Table1";
+import  Table  from "@/app/components/dashboardcomponents/Table1";
 import { Home, BarChart, Settings, Table as TableIcon } from "lucide-react"; 
 
 const Dashboard: React.FC = () => {

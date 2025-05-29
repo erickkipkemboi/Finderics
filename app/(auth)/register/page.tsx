@@ -41,18 +41,18 @@ const SubmitForm = () => {
       return;
     }
 
+    
     try {
-      await axios.post(
-        "http://localhost:5000/api/register",
-        formData,
-        {
-          headers: {
-            "Content-Type": "application/json",
-            "Accept": "application/json",
-          },
-        }
-      );
-
+      const baseline = process.env.NEXT_PUBLIC_API_BASE_URL;
+      const response = await axios.post(`${baseline}/api/register`, formData, {
+        headers: {
+          "Content-Type": "application/json",
+          Accept: "application/json",
+        },
+      });
+      if (response.status !== 201) {
+        throw new Error("Registration failed.");
+      } 
       toast.success("Form submitted successfully! Redirecting to login...");
 
       setFormData({ fullname: "", username: "", phone: "", email: "", password: "" });

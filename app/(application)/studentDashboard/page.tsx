@@ -1,27 +1,29 @@
-"use client"
-import React from 'react'
-import Sidebar from "@/app/components/dashboard/Sidebar";
-import { Home,  Settings} from "lucide-react"; 
-import Profile from "@/app/components/dashboard/Profile";
-import Course_Selection from '@/app/components/studentDashboard/Course_Selection';
+"use client";
 
-const user = {
-    name: "John Doe",
-    role: "Admin",
-    avatarInitials: "JD",
-  };
-const navItems=[
-    {label:"Dashboard",href:"/dashboard", icon: <Home size={20} /> },
-    {label:"Settings", href:"/settings", icon:<Settings size={20} />}
-]
-function page() {
+import React from "react";
+import Sidebar from "@/app/components/dashboardcomponents/Sidebar";
+import { Home, Settings } from "lucide-react";
+import Course_Selection from "@/app/components/studentDashboard/Course_Selection";
+import Profile from "../dashboard/Profile/page";
+import { useProtectedPage } from "@/app/hooks/page";
+
+
+const navItems = [
+  { label: "Dashboard", href: "/dashboard", icon: <Home size={20} /> },
+  { label: "Settings", href: "/settings", icon: <Settings size={20} /> },
+];
+
+function Page() {
+  useProtectedPage(["user"]);
   return (
-      <><Sidebar navItems={navItems} />
-        <Profile user={user} onMenuClick={() => console.log("Menu clicked")} />
-        <Course_Selection/>
-</>
-
-  )
+    <>
+      <Sidebar navItems={navItems} />
+        <Profile onMenuClick={function (): void {
+        throw new Error("Function not implemented.");
+      } }/>
+      <Course_Selection />
+    </>
+  );
 }
 
-export default page
+export default Page;
