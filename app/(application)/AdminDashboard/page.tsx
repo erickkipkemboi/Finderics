@@ -1,5 +1,4 @@
 "use client";
-
 import React from "react";
 import Sidebar from "@/app/components/dashboardcomponents/Sidebar";
 import { Home, Settings } from "lucide-react";
@@ -13,7 +12,7 @@ const navItems = [
 ];
 
 function Page() {
-  useProtectedPage(["user"]);
+  useProtectedPage(["admin"]);
   return (
     <>
       <Sidebar navItems={navItems} />

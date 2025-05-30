@@ -1,7 +1,6 @@
 "use client";
 import React from "react";
 import Sidebar from "@/app/components/dashboardcomponents/Sidebar";
-import Profile from "@/app/components/dashboardcomponents/Profile";
 import DashboardCards from "@/app/components/dashboardcomponents/Cards";
 import Charts from "@/app/components/dashboardcomponents/Charts";
 import { Card } from "@/components/ui/card";
@@ -24,12 +23,7 @@ const Dashboard: React.FC = () => {
 
  
       <main className="lg:ml-12 ml-24">
-        <Profile
-          user={user}
-          onMenuClick={function (): void {
-            throw new Error("Function not implemented.");
-          }}
-        />
+        
 
         <div className="p-6">
           <div className="max-w-7xl mx-auto">
