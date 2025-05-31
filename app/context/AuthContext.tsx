@@ -42,7 +42,7 @@ export const AuthProvider = ({ children }: { children: React.ReactNode }) => {
 
           // Redirect based on role
           if (decoded.role === "admin") {
-            router.push("/dashboard")
+            router.push("/AdminDashboard")
           } else {
             router.push("/studentDashboard")
           }

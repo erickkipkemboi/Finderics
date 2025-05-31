@@ -1,74 +1,66 @@
-import { useState } from "react";
-import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table";
-import { Input } from "@/components/ui/input";
-import { Button } from "@/components/ui/button";
+'use client';
+import { useEffect, useState } from 'react';
+import { fetchUsers } from '@/app/lib/api';
 
-interface Data {
+interface User {
   id: number;
-  name: string;
-  course: string;
+  fullname: string;
+  username: string;
   email: string;
   phone: string;
-  amount:string;
-  status:string;
+  role: string;
 }
 
-const sampleData: Data[] = [
-  { id: 1, name: "Erick Olande", course: "Germany", email: "alice@example.com", phone: "254793042033", amount:"10000", status:"approved"},
-  { id: 2, name: "Bob Smith", course: "French", email: "bob@example.com",phone: "254793042033", amount:"10000", status:"approved" },
-  { id: 3, name: "Charlie Brown", course: "Ielts", email: "charlie@example.com",phone: "254793042033", amount:"10000", status:"approved"},  
-  { id: 1, name: "Erick Olande", course: "Germany", email: "alice@example.com", phone: "254793042033", amount:"10000", status:"approved"},
-  { id: 2, name: "Bob Smith", course: "French", email: "bob@example.com",phone: "254793042033", amount:"10000", status:"approved" },
-  { id: 3, name: "Charlie Brown", course: "Ielts", email: "charlie@example.com",phone: "254793042033", amount:"10000", status:"approved"},
-  { id: 1, name: "Erick Olande", course: "Germany", email: "alice@example.com", phone: "254793042033", amount:"10000", status:"approved"},
-  { id: 2, name: "Bob Smith", course: "French", email: "bob@example.com",phone: "254793042033", amount:"10000", status:"approved" },
-  { id: 3, name: "Charlie Brown", course: "Ielts", email: "charlie@example.com",phone: "254793042033", amount:"10000", status:"approved"},
-  { id: 1, name: "Erick Olande", course: "Germany", email: "alice@example.com", phone: "254793042033", amount:"10000", status:"approved"},
-  { id: 2, name: "Bob Smith", course: "French", email: "bob@example.com",phone: "254793042033", amount:"10000", status:"approved" },
-  { id: 3, name: "Charlie Brown", course: "Ielts", email: "charlie@example.com",phone: "254793042033", amount:"10000", status:"approved"},
-  { id: 1, name: "Erick Olande", course: "Germany", email: "alice@example.com", phone: "254793042033", amount:"10000", status:"approved"},
-  { id: 2, name: "Bob Smith", course: "French", email: "bob@example.com",phone: "254793042033", amount:"10000", status:"approved" },
-  { id: 3, name: "Charlie Brown", course: "Ielts", email: "charlie@example.com",phone: "254793042033", amount:"10000", status:"approved"},
-];
+export default function UsersPage() {
+  const [users, setUsers] = useState<User[]>([]);
+  const [loading, setLoading] = useState(true);
 
-export default function DataTable() {
-  const [search, setSearch] = useState("");
-  const [data, setData] = useState(sampleData);
+  useEffect(() => {
+    const loadUsers = async () => {
+      try {
+        const data = await fetchUsers();
+        setUsers(data);
+      } catch (error) {
+        console.error('Error fetching users:', error);
+      } finally {
+        setLoading(false);
+      }
+    };
 
-  const filteredData = data.filter((item) => item.name.toLowerCase().includes(search.toLowerCase()));
+    loadUsers();
+  }, []);
+
+  if (loading) return <p className="p-4">Loading...</p>;
 
   return (
-    <div className="p-4">
-      <div className="flex justify-between mb-4">
-        <Input placeholder="Search by name..." value={search} onChange={(e) => setSearch(e.target.value)} />
-        <Button onClick={() => setData([...data].reverse())}>Sort</Button>
-      </div>
-      <Table>
-        <TableHeader>
-          <TableRow>
-            <TableHead>ID</TableHead>
-            <TableHead>Name</TableHead>
-            <TableHead>Cource</TableHead>
-            <TableHead>Email</TableHead>
-            <TableHead>Phone</TableHead>
-            <TableHead>Amount</TableHead>
-            <TableHead>Status</TableHead>
-          </TableRow>
-        </TableHeader>
-        <TableBody>
-          {filteredData.map((item) => (
-            <TableRow key={item.id}>
-              <TableCell>{item.id}</TableCell>
-              <TableCell>{item.name}</TableCell>
-              <TableCell>{item.course}</TableCell>
-              <TableCell>{item.email}</TableCell>
-              <TableCell>{item.phone}</TableCell>
-              <TableCell>{item.amount}</TableCell>
-              <TableCell>{item.status}</TableCell>
-            </TableRow>
-          ))}
-        </TableBody>
-      </Table>
+    <div className="p-6 ml-32">
+      <h1 className="text-2xl font-bold mb-4">Users</h1>
+      <div className="overflow-x-auto">
+        <table className="min-w-full border border-gray-200 text-left">
+          <thead className="bg-gray-100">
+            <tr>
+              <th className="px-4 py-2 border">ID</th>
+              <th className="px-4 py-2 border">Full Name</th>
+              <th className="px-4 py-2 border">Username</th>
+              <th className="px-4 py-2 border">Email</th>
+              <th className="px-4 py-2 border">Phone</th>
+              <th className="px-4 py-2 border">Role</th>
+            </tr>
+          </thead>
+          <tbody>
+            {users.map((user) => (
+              <tr key={user.id} className="hover:bg-gray-50">
+                <td className="px-4 py-2 border">{user.id}</td>
+                <td className="px-4 py-2 border">{user.fullname}</td>
+                <td className="px-4 py-2 border">{user.username}</td>
+                <td className="px-4 py-2 border">{user.email}</td>
+                <td className="px-4 py-2 border">{user.phone}</td>
+                <td className="px-4 py-2 border capitalize">{user.role}</td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div> 
     </div>
   );
 }

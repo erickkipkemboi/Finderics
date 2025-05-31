@@ -53,7 +53,7 @@ export default function Login() {
         // Redirect after a short delay
         setTimeout(() => {
           if (decoded.role === "admin") {
-            router.push("/dashboard")
+            router.push("/AdminDashboard")
           } else if (decoded.role === "user") {
             router.push("/studentDashboard")
           } else {

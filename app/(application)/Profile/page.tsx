@@ -2,20 +2,14 @@
 
 import React from "react";
 import { Search, Menu } from "lucide-react";
-import {
-  DropdownMenu,
-  DropdownMenuTrigger,
-  DropdownMenuContent,
-  DropdownMenuItem,
-  DropdownMenuSeparator,
+import {DropdownMenu,DropdownMenuTrigger,DropdownMenuContent,DropdownMenuItem,DropdownMenuSeparator,
 } from "@/components/ui/dropdown-menu";
 import { Card } from "@/components/ui/card";
-import { useAuth } from "@/app/context/AuthContext"; // Import auth context
+import { useAuth } from "@/app/context/AuthContext"; 
 
 const Profile: React.FC<{ onMenuClick: () => void }> = ({ onMenuClick }) => {
-  const { user, logout } = useAuth(); // Fetch user and logout from context
+  const { user, logout } = useAuth(); 
 
-  // ✅ Hide profile if user is not authenticated
   if (!user) return null;
 
   const userName = user.name;
@@ -67,7 +61,8 @@ const Profile: React.FC<{ onMenuClick: () => void }> = ({ onMenuClick }) => {
             <DropdownMenuSeparator />
             <DropdownMenuItem
               className="text-red-500 cursor-pointer"
-              onClick={logout} // ✅ Link logout action
+              onClick={logout}  
+              aria-label="Logout"
             >
               Logout
             </DropdownMenuItem>
