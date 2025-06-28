@@ -39,7 +39,7 @@ export default function UsersPage() {
         <table className="min-w-full border border-gray-200 text-left">
           <thead className="bg-gray-100">
             <tr>
-              <th className="px-4 py-2 border">ID</th>
+              <th className="px-4 py-2 border">Id</th>
               <th className="px-4 py-2 border">Full Name</th>
               <th className="px-4 py-2 border">Username</th>
               <th className="px-4 py-2 border">Email</th>

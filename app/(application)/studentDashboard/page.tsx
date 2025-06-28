@@ -4,8 +4,8 @@ import React from "react";
 import Sidebar from "@/app/components/dashboardcomponents/Sidebar";
 import { Home, Settings } from "lucide-react";
 import Course_Selection from "@/app/components/studentDashboard/Course_Selection";
-import { useProtectedPage } from "@/app/hooks/page";
-import Profile from "../Profile/page";
+import { useProtectedPage } from "@/app/hooks/useProtectedPage";
+import Profile from "@/app/components/dashboardcomponents/Profile"
 
 const navItems = [
   { label: "Dashboard", href: "/dashboard", icon: <Home size={20} /> },

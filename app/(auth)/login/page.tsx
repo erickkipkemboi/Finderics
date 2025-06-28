@@ -2,12 +2,9 @@
 
 import { useState } from "react"
 import { useRouter } from "next/navigation"
-import axios from "axios"
+import axios, { AxiosError } from "axios"
 import { Button } from "@/components/ui/button"
-import {Card,CardContent,CardDescription,
-  CardFooter,
-  CardHeader,
-  CardTitle,
+import {Card,CardContent,CardDescription,CardFooter,CardHeader,CardTitle,
 } from "@/components/ui/card"
 import { Input } from "@/components/ui/input"
 import { Label } from "@/components/ui/label"
@@ -61,11 +58,19 @@ export default function Login() {
           }
         }, 1500)
       }
-    } catch (err: any) {
-      toast.error(err.response?.data?.error || "Login failed. Please try again.")
-    } finally {
-      setLoading(false)
+    } 
+  
+    catch (err) {
+    const error = err as AxiosError<{ error: string }>
+  
+    if (axios.isAxiosError(error)) {
+      toast.error(error.response?.data?.error || "Login failed. Please try again.")
+    } else {
+      toast.error("An unexpected error occurred.")
     }
+  }
+    
+   
   }
 
   return (

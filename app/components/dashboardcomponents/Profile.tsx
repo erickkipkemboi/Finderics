@@ -1,24 +1,32 @@
-"use client";
+"use client"
 
-import React from "react";
-import { Search, Menu } from "lucide-react";
-import {DropdownMenu,DropdownMenuTrigger,DropdownMenuContent,DropdownMenuItem,DropdownMenuSeparator,
-} from "@/components/ui/dropdown-menu";
-import { Card } from "@/components/ui/card";
-import { useAuth } from "@/app/context/AuthContext"; 
+import React from "react"
+import { Search, Menu } from "lucide-react"
+import {
+  DropdownMenu,
+  DropdownMenuTrigger,
+  DropdownMenuContent,
+  DropdownMenuItem,
+  DropdownMenuSeparator,
+} from "@/components/ui/dropdown-menu"
+import { Card } from "@/components/ui/card"
+import { useAuth } from "@/app/context/AuthContext"
 
-const Profile: React.FC<{ onMenuClick: () => void }> = ({ onMenuClick }) => {
-  const { user, logout } = useAuth(); 
+// ✅ Add props type here
+type ProfileProps = {
+  onMenuClick: () => void
+}
 
-  if (!user) return null;
+const Profile: React.FC<ProfileProps> = ({ onMenuClick }) => {
+  const { user, logout } = useAuth()
 
-  const userName = user.name;
-  const userRole = user.role;
+  if (!user) return null
+
   const userInitials = user.name
     .split(" ")
     .map((n) => n[0])
     .join("")
-    .toUpperCase();
+    .toUpperCase()
 
   return (
     <Card className="w-full bg-white border-b h-16 shadow-md">
@@ -32,10 +40,7 @@ const Profile: React.FC<{ onMenuClick: () => void }> = ({ onMenuClick }) => {
         </button>
 
         <div className="relative flex-1 max-w-md mx-auto">
-          <Search
-            className="absolute left-3 top-1/2 -translate-y-1/2 text-gray-400"
-            size={18}
-          />
+          <Search className="absolute left-3 top-1/2 -translate-y-1/2 text-gray-400" size={18} />
           <input
             type="search"
             placeholder="Search..."
@@ -47,8 +52,8 @@ const Profile: React.FC<{ onMenuClick: () => void }> = ({ onMenuClick }) => {
           <DropdownMenuTrigger asChild>
             <button className="flex items-center space-x-3">
               <div className="hidden sm:block text-right">
-                <p className="text-sm font-medium text-gray-700">{userName}</p>
-                <p className="text-xs text-gray-500">{userRole}</p>
+                <p className="text-sm font-medium text-gray-700">{user.name}</p>
+                <p className="text-xs text-gray-500">{user.role}</p>
               </div>
               <div className="h-8 w-8 bg-blue-500 flex items-center justify-center rounded-full text-white font-medium">
                 {userInitials}
@@ -59,18 +64,14 @@ const Profile: React.FC<{ onMenuClick: () => void }> = ({ onMenuClick }) => {
             <DropdownMenuItem>Profile</DropdownMenuItem>
             <DropdownMenuItem>Settings</DropdownMenuItem>
             <DropdownMenuSeparator />
-            <DropdownMenuItem
-              className="text-red-500 cursor-pointer"
-              onClick={logout}  
-              aria-label="Logout"
-            >
+            <DropdownMenuItem className="text-red-500 cursor-pointer" onClick={logout}>
               Logout
             </DropdownMenuItem>
           </DropdownMenuContent>
         </DropdownMenu>
       </div>
     </Card>
-  );
-};
+  )
+}
 
-export default Profile;
+export default Profile
